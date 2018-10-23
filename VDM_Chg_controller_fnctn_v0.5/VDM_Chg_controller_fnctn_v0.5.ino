@@ -1,4 +1,4 @@
-//for Arduino Nano or ATMega328pA
+//for Arduino Nano or ATMega328PA
  
 //#include <FreqCount.h>
 
@@ -63,8 +63,8 @@ long num = 0;
 
 unsigned long timeNow = millis();
 const unsigned long disp_delay = 1000;
-const unsigned long RPM_delay = 100;
-const unsigned long chg_delay = 10;
+const unsigned long RPM_delay = 400; //2.5 times a second
+const unsigned long chg_delay = 255; //4 times a second
 unsigned long RPMTimeDue = timeNow + RPM_delay;
 unsigned long dispTimeDue = timeNow + disp_delay;
 unsigned long chgTimeDue = timeNow + chg_delay;
@@ -94,7 +94,7 @@ digitalWrite(CS4,HIGH);
 digitalWrite (freqPin,true); //pullup
 //FreqCount.begin(1000);
 Serial.begin(57600); 
-Serial.println("Energy gconverter function program");
+Serial.println("Energy converter function program");
 
 pinMode(3,OUTPUT); //signal generator for testing
 analogWrite(3,75); //signal generator for testing
