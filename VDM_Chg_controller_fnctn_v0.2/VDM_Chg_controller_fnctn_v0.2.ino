@@ -1,5 +1,5 @@
-//for Arduino Nano or ATMega328pA/ 
-
+//for Arduino Nano or ATMega328pA
+ 
 //#include <FreqCount.h>
 
 #define INC 12   // D1 Mini D4 - pulled up in H/W (10k) ->  chip pin 1
