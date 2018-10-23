@@ -6,8 +6,8 @@ void chargeControl() {
 
     case 1:
       //Serial.println("executing mode 1");
-      Vtrig = 25.5;
-      Vtarg = 27;
+      Vtrig = 25.2;
+      Vtarg = 26.5;
       VfloatMin = 26;
       VfloatMax = 26.5;
       charge();
@@ -15,7 +15,7 @@ void chargeControl() {
     
     case 2:
       //Serial.println("executing mode 2");
-      Vtrig = 25;
+      Vtrig = 24;
       Vtarg = 28;
       VfloatMin = 27;
       VfloatMax = 27.5;
@@ -117,10 +117,7 @@ void Shutdown(){
 
 
 
-
 void get_RPM(){
-
-   RPMTimeDue = timeNow + disp_delay;
   
     pulseTotal = 0;
     
@@ -134,6 +131,8 @@ void get_RPM(){
     pulseTotal = pulseTotal / 2;
     
     frequency=1000000/pulseTotal; // Frequency in Hertz (Hz)
+
+    RPMTimeDue = timeNow + RPM_delay;
     
     Serial.print("Frequency : ");
     Serial.println(frequency);
@@ -183,11 +182,12 @@ int get_current(int channel){
 int get_value(int pin){
   int analogvalue = 0;
 
-  for (int t=1;t<21;t++){
+  for (int t=1;t<31;t++){
     analogvalue = analogvalue + analogRead(pin);
+    delay(1);                                     //ensure that  about 1/30th of a second is measured in this loop
   }
 
-  return (analogvalue / 20);
+  return (analogvalue / 30);
   
 }
 
