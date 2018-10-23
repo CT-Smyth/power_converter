@@ -1,4 +1,4 @@
-//for Arduino Nano / 
+//for Arduino Nano or ATMega328 / 
 
 //#include <FreqCount.h>
 
